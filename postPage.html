@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/Flavor_Trail/assets/Logo-367dc84c.png" />
+  <title>Flavor Trail - postPage</title>
+  <script type="module" crossorigin src="/Flavor_Trail/assets/district-pick-a49d0956.js"></script>
+  <link rel="stylesheet" href="/Flavor_Trail/assets/district-pick-c57a301e.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg top-auto py-lg-0 position-fixed w-100 py-0" id="navbar">
+    <div class="container">
+        <!-- Logo -->
+        <h1 class="fs-0">
+            <a class="navbar-brand d-flex py-lg-0 d-lg-block d-none" href="index.html">
+                <img src="/Flavor_Trail/assets/Logo-navbar-de581ad4.svg" alt="logo">
+            </a>
+        </h1>
+
+        <!-- Toggler for mobile -->
+        <button class="navbar-toggler navbar-toggler-custom p-10 rounded-start-3" type="button" data-bs-toggle="offcanvas" href="#offcanvasNav" role="button" aria-controls="offcanvasNav" id="navbarToggler">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="burgerIcon" class="burger-icon">
+                <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="d-none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>     
+        </button>
+
+        <!-- Desktop menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav py-lg-7 mb-2 mb-lg-0 gap-lg-7">
+                <li class="nav-item">
+                    <a class="nav-link py-lg-3 px-lg-5" href="allPost.html">所有貼文</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-lg-3 px-lg-5" href="#">關於我們</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-lg-2 search-icon" href="#" type="button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21L16.7 16.7M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item border border-black" id="desktop-auth-button">
+                    <a href="login.html" class="nav-link nav-item-btn py-lg-3 px-lg-5">登入/註冊</a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Mobile menu (Offcanvas) -->
+        <div class="offcanvas offcanvas-start w-100 border-0 d-lg-none" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
+            <div class="offcanvas-header d-flex justify-content-between mb-12">
+                <h1 class="offcanvas-title" id="offcanvasNavLabel">
+                    <a href="index.html">
+                        <img src="/Flavor_Trail/assets/Logo-navbar-de581ad4.svg" alt="logo">
+                    </a>
+                </h1>
+                <ul class="nav-item border border-black" id="mobile-auth-button">
+                    <a href="login.html" class="nav-link nav-item-btn py-3 px-5 fw-bold">登入/註冊</a>
+                </ul>
+            </div>
+            <ul class="offcanvas-body navbar-nav vh-100 pt-0">
+                <li class="nav-item mb-10">
+                    <ul class="search-form d-flex gap-2 flex-wrap">
+                        <li class="input-group rounded-3 bg-white">
+                            <input class="form-control search-input py-2 px-5 bg-white" type="text" name="search" placeholder="附近美味">
+                            <a href="#" class="input-group-text border-0 bg-transparent py-2 ps-0 pe-5">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 21L16.7 16.7M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="dropdown position-relative">
+                            <button class="dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 rounded-3 bg-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                地理位置
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-5 dropdown-arrow">
+                                    <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </button>
+                            <ul class="dropdown-menu custom-dropdown-menu position-absolute w-100">
+                                <li><a class="dropdown-item" href="#">臺北市</a></li>
+                                <li><a class="dropdown-item" href="#">新北市</a></li>
+                                <li><a class="dropdown-item" href="#">桃園市</a></li>
+                                <li><a class="dropdown-item" href="#">臺中市</a></li>
+                                <li><a class="dropdown-item" href="#">臺南市</a></li>
+                                <li><a class="dropdown-item" href="#">高雄市</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <button class="dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 rounded-3 bg-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                美食類型
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-5 dropdown-arrow">
+                                    <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </button>
+                            <ul class="dropdown-menu custom-dropdown-menu position-absolute w-100">
+                                <li><a class="dropdown-item" href="#">主食</a></li>
+                                <li><a class="dropdown-item" href="#">甜點</a></li>
+                                <li><a class="dropdown-item" href="#">飲料</a></li>
+                                <li><a class="dropdown-item" href="#">水果</a></li>
+                                <li><a class="dropdown-item" href="#">零食</a></li>
+                                <li><a class="dropdown-item" href="#">熟食</a></li>
+                                <li><a class="dropdown-item" href="#">未烹飪食材</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-10">
+                    <h2 class="fs-1 fw-bolder">
+                        <a class="nav-link p-0" href="#" data-bs-toggle="modal" data-bs-target="#shareFoodModal">分享美味</a>
+                    </h2>
+                </li>
+                <li class="nav-item mb-10">
+                    <h2 class="fs-1 fw-bolder">
+                        <a class="nav-link p-0" href="allPost.html">所有貼文</a>
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <h2 class="fs-1 fw-bolder">
+                        <a class="nav-link p-0" href="#">關於我們</a>
+                    </h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Search bar for desktop -->
+<div class="search d-none">
+    <div class="search-bar container d-flex">
+        <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
+            <img src="/Flavor_Trail/assets/Logo-navbar-de581ad4.svg" alt="logo">
+        </a>
+        <ul class="search-form d-flex py-7 gap-2 ms-auto me-2 flex-grow-1 justify-content-end">
+            <li class="input-group mb-5 mb-lg-0 rounded-3 bg-white">
+                <input class="form-control search-input py-2 px-5 bg-white" type="text" name="search" placeholder="附近美味">
+                <a href="#" class="input-group-text border-0 bg-transparent py-2 ps-0 pe-5">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.7 16.7M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </li>
+            <li class="dropdown">
+                <button class="nav-link dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 gap-5 rounded-3 bg-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    地理位置
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow">
+                        <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                            
+                </button>
+                <ul class="dropdown-menu custom-dropdown-menu">
+                    <li><a class="dropdown-item" href="#">臺北市</a></li>
+                    <li><a class="dropdown-item" href="#">新北市</a></li>
+                    <li><a class="dropdown-item" href="#">桃園市</a></li>
+                    <li><a class="dropdown-item" href="#">臺中市</a></li>
+                    <li><a class="dropdown-item" href="#">臺南市</a></li>
+                    <li><a class="dropdown-item" href="#">高雄市</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <button class="nav-link dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 gap-5 rounded-3 bg-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    美食類型
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow">
+                        <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                            
+                </button>
+                <ul class="dropdown-menu custom-dropdown-menu">
+                    <li><a class="dropdown-item" href="#">主食</a></li>
+                    <li><a class="dropdown-item" href="#">甜點</a></li>
+                    <li><a class="dropdown-item" href="#">飲料</a></li>
+                    <li><a class="dropdown-item" href="#">水果</a></li>
+                    <li><a class="dropdown-item" href="#">零食</a></li>
+                    <li><a class="dropdown-item" href="#">熟食</a></li>
+                    <li><a class="dropdown-item" href="#">未烹飪食材</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a class="close-btn d-flex flex-column align-items-center justify-content-center ms-2 bg-black rounded-bottom-3 text-white fw-bold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-2">
+                <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            關閉
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        /* 向下滾動 - 隱藏 navbar & 向上滾動 - 顯示 navbar */
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        navbar.style.top = "0";
+        function handleNavbarScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            navbar.style.top = (scrollTop > lastScrollTop) ? "-88px" : "0";
+            lastScrollTop = scrollTop;
+            
+            if (scrollTop > 40) {
+                navbarToggler.classList.add('scrolled-navbar-toggler');
+            } else {
+                navbarToggler.classList.remove('scrolled-navbar-toggler');
+            }
+        }
+        window.addEventListener('scroll', handleNavbarScroll);
+
+        /* 模擬登入後「登入/註冊」按鈕變成「我的帳號」下拉選單 */
+        const desktopAuthButton = document.getElementById('desktop-auth-button');
+        const mobileAuthButton = document.getElementById('mobile-auth-button');
+
+        function setLoggedInState() {
+            const accountMenuHTML = `
+                <li class="nav-item dropdown nav-account-menu">
+                    <a class="nav-link dropdown-toggle nav-dropdown-btn py-3 px-5 position-relative d-flex align-items-center" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        我的帳號
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-primary p-1">
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu nav-dropdown-menu mt-1 border-0" aria-labelledby="accountDropdown">
+                        <li><a class="dropdown-item" href="#">我的主頁</a></li>
+                        <li><a class="dropdown-item" href="account-posts.html">我的發文</a></li>
+                        <li><a class="dropdown-item" href="account-notifications.html">全部通知</a></li>
+                        <li><a class="dropdown-item logout" href="login.html" id="logout">登出</a></li>
+                    </ul>
+                </li>
+            `;
+            
+            desktopAuthButton.innerHTML = accountMenuHTML;
+            mobileAuthButton.innerHTML = accountMenuHTML;
+
+            document.getElementById('logout').addEventListener('click', function () {
+                localStorage.removeItem('loggedIn');
+                window.location.reload(); 
+            });
+        } 
+        
+        function setLoggedOutState() {
+            const loginButtonHTML = `
+                <a href="login.html" class="nav-link nav-item-btn py-3 px-5 fw-bold">登入/註冊</a>
+            `;
+            desktopAuthButton.innerHTML = loginButtonHTML;
+            mobileAuthButton.innerHTML = loginButtonHTML;
+
+            desktopAuthButton.addEventListener('click', function () {
+                localStorage.setItem('loggedIn', true);
+            });
+            mobileAuthButton.addEventListener('click', function() {
+                localStorage.setItem('loggedIn', true);
+            })
+        }
+
+        let isLoggedIn = localStorage.getItem('loggedIn');
+        if (isLoggedIn) {
+            setLoggedInState();
+        } else {
+            setLoggedOutState();
+        }
+
+        /* 下拉選單上下箭頭切換 */
+        document.addEventListener('click', function (event) {
+            const isDropdownButton = event.target.closest('.dropdown-btn');
+            const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
+
+            if (!isDropdownButton) {
+                dropdownArrows.forEach(arrow => {
+                    arrow.classList.remove('flip-arrow');
+                });
+            }
+        });
+
+        const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+        
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const dropdownArrow = event.currentTarget.querySelector('.dropdown-arrow');
+                dropdownArrow.classList.toggle('flip-arrow');
+            });
+        })
+
+        /* 切換 navbar 和 搜尋欄 */
+        const searchIcon = document.querySelector('.search-icon');
+        const searchBar = document.querySelector('.search');
+        const closeBtn = document.querySelector('.close-btn');
+
+        searchIcon.addEventListener('click', function () {
+            searchBar.classList.remove('d-none');  // 顯示搜尋欄
+            navbar.classList.add('d-none');  // 隱藏導航欄
+        });
+
+        closeBtn.addEventListener('click', function () {
+            searchBar.classList.add('d-none');  // 隱藏搜尋欄
+            navbar.classList.remove('d-none');  // 顯示導航欄
+        });
+
+        /* 切換漢堡圖標和關閉圖標 */
+        const navbarToggler = document.getElementById('navbarToggler');
+        const burgerIcon = document.getElementById('burgerIcon');
+        const closeIcon = document.getElementById('closeIcon');
+
+        function toggleIcons() {
+            burgerIcon.classList.toggle('d-none');
+            closeIcon.classList.toggle('d-none');
+            navbarToggler.classList.toggle('toggled');
+        };
+
+        navbarToggler.addEventListener('click', toggleIcons);
+    });
+
+    
+</script>    <div class="container nav-mt">
+      <nav class="pt-7 d-none d-lg-block" style="--bs-breadcrumb-divider:url(data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2018L15%2012L9%206%22%20stroke%3D%22%23484848%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="allPost.html" class="link-primary fw-bold">所有貼文</a></li>
+          <li class="breadcrumb-item active fw-bold text-gray-400 ps-5" aria-current="page">分享奢華午餐，尋找飢餓的你</li>
+        </ol>
+      </nav>
+      <!--照片區-->
+      <div class="row mt-3 mt-lg-7 mb-7">
+        <div class="col-lg-8">
+          <div class="post-img-sm d-block d-lg-none position-relative">
+            <div class="swiper-pagination-post position-absolute rounded-3 text-white fw-bold py-3 px-5 z-2"></div>
+            <div class="swiper postSwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="rounded-3" src="/Flavor_Trail/assets/home-4-54446fc6.jpg" alt="postBanner1" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="rounded-3" src="/Flavor_Trail/assets/postBanner2-30b5c6da.jpg" alt="postBanner2" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="rounded-3" src="/Flavor_Trail/assets/postBanner3-d0d00a6e.jpg" alt="postBanner3" />
+                </div>
+                <div class="swiper-slide">
+                  <img class="rounded-3" src="/Flavor_Trail/assets/postBanner4-a43466ba.jpg" alt="postBanner4" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post-img-lg d-none d-lg-block w-100 h-100">
+            <img class="w-100 h-100 rounded-3 object-fit-cover" src="/Flavor_Trail/assets/home-4-54446fc6.jpg"
+              alt="postBanner1" style="max-height: 580px;" />
+          </div>
+        </div>
+        <div class="d-none d-lg-flex flex-column col-lg-4">
+          <div class="mb-7 w-100 h-100">
+            <img class="w-100 rounded-3 object-fit-cover" src="/Flavor_Trail/assets/postBanner2-30b5c6da.jpg"
+              alt="postBanner2" style="min-height: 278px;" />
+          </div>
+          <div class="w-100 h-100 position-relative">
+            <a href="#"
+              class="more-card-text d-flex flex-column justify-content-center align-items-center position-absolute start-50 top-50 translate-middle z-1">
+              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 13.5H5V11.5H11V5.5H13V11.5H19V13.5H13V19.5H11V13.5Z" fill="white" />
+              </svg>
+              <div class="fw-4 fw-bold text-white mt-2">
+                查看更多
+              </div>
+            </a>
+            <img class="w-100 rounded-3 object-fit-cover more-card" src="/Flavor_Trail/assets/postBanner3-d0d00a6e.jpg"
+              alt="postBanner3" style="min-height: 278px; filter: brightness(0.5);" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="post-page">
+    <!--貼文區 ＆ 領取區-->
+    <section class="post-receiving-area container">
+      <!--貼文領取區大row-->
+      <div class="row">
+        <!--左邊貼文區-->
+        <div class="col-lg-8">
+          <div class="bg-white rounded-3 p-5 mb-5">
+            <!--個人資訊區-->
+            <div class="row mx-0 py-5 border-bottom align-items-center">
+              <!--頭像及稱號-->
+              <div class="col-lg-8 d-flex align-items-center justify-content-between p-0">
+                <div class="d-flex me-5">
+                  <img src="/Flavor_Trail/assets/Ellipse 1-1bdb61cb.png" alt="user-img" style="width: 48px; height: 48px" />
+                </div>
+                <div class="flex-grow-1">
+                  <div class="fs-4">法國地頭蛇</div>
+                  <div style="font-size: 14px">
+                    台北市 / 信義區· 2hr
+                  </div>
+                </div>
+                <div class="d-md-none d-flex text-center pe-0 align-items-center justify-content-end">
+                  <img src="/Flavor_Trail/assets/square-pen-5f4a5059.svg" alt="" />
+                </div>
+              </div>
+              <!--後面三個標籤-->
+              <div class="d-none col-lg-4 d-lg-flex justify-content-end px-0 gap-2">
+                <h5>
+                  <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">最新</span>
+                </h5>
+                <h5>
+                  <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                </h5>
+                <h5>
+                  <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                </h5>
+              </div>
+            </div>
+            <!--內文區-->
+            <div class="row mx-0 border-bottom">
+              <!--後面三個標籤-->
+              <div class="d-lg-none col-lg-4 d-flex pt-7 px-0 gap-2">
+                <h5>
+                  <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">最新</span>
+                </h5>
+                <h5>
+                  <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                </h5>
+                <h5>
+                  <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                </h5>
+              </div>
+              <!--標題區-->
+              <div class="d-flex justify-content-between align-items-center py-5 pt-lg-7 px-0">
+                <h4 class="fs-3 fw-bold">奢華午餐，尋找飢餓的你！</h4>
+              </div>
+              <!--內文區-->
+              <div class="row">
+                <ul class="list-unstyled px-0">
+                  <li>
+                    公司今天的會議取消了，現在有20個未開封的精緻便當在辦公室裡孤單寂寞。
+                  </li>
+                  <li>這些美味的午餐現在孤單地等待著我們的到來。</li>
+                  <br />
+                  <li>每個便當的內容:</li>
+                  <li>主菜: 日本和牛漢堡 (A5等級,油花滿滿)</li>
+                  <li>配菜:黑松露薯條 (香氣四溢,停不下來)</li>
+                  <li>沙拉: 迷你龍蝦沙拉(新鮮龍蝦搭配特製醬料)rr</li>
+                  <li>甜點: 開心果馬卡龍 (精緻可口,回甘無窮)</li>
+                  <li>飲料: 冷萃精品咖啡 (哥倫比亞單品豆,口感順滑)</li>
+                  <br />
+                  <li>* 領取方式:請到前台告知領取便當</li>
+                  <br />
+                  <li>小提醒：<span class="d-inline d-lg-none">...</span></li>
+                  <ol class="list-group-numbered d-none d-lg-block">
+                    <li class="list-group-item">為地球盡一份心力</li>
+                    <li class="list-group-item">
+                      歡迎三五好友一起來,但請勿一人多拿,讓更多人有機會品嚐
+                    </li>
+                    <li class="list-group-item">
+                      如果你是素食者,我們還有5份素食便當喔
+                    </li>
+                  </ol>
+                  <br />
+                </ul>
+              </div>
+              <!--按讚統計區-->
+              <div class="row w-auto d-inline justify-content-start pb-7">
+                <div class="col d-inline ps-0">
+                  <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.37468 8.23224C1.31912 8.08256 1.31912 7.91792 1.37468 7.76824C1.91581 6.45614 2.83435 5.33427 4.01386 4.54484C5.19336 3.75541 6.58071 3.33398 8.00001 3.33398C9.41932 3.33398 10.8067 3.75541 11.9862 4.54484C13.1657 5.33427 14.0842 6.45614 14.6253 7.76824C14.6809 7.91792 14.6809 8.08256 14.6253 8.23224C14.0842 9.54434 13.1657 10.6662 11.9862 11.4556C10.8067 12.2451 9.41932 12.6665 8.00001 12.6665C6.58071 12.6665 5.19336 12.2451 4.01386 11.4556C2.83435 10.6662 1.91581 9.54434 1.37468 8.23224Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M8.00001 10.0002C9.10458 10.0002 10 9.10481 10 8.00024C10 6.89567 9.10458 6.00024 8.00001 6.00024C6.89544 6.00024 6.00001 6.89567 6.00001 8.00024C6.00001 9.10481 6.89544 10.0002 8.00001 10.0002Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>178</span>
+                </div>
+                <div class="col d-inline">
+                  <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M5.26634 13.3332C6.53873 13.9859 8.0024 14.1627 9.3936 13.8317C10.7848 13.5007 12.012 12.6838 12.8542 11.528C13.6963 10.3722 14.098 8.95367 13.9867 7.52798C13.8755 6.10228 13.2587 4.76318 12.2475 3.752C11.2364 2.74081 9.89727 2.12404 8.47157 2.01281C7.04587 1.90159 5.62732 2.30323 4.47155 3.14537C3.31579 3.9875 2.4988 5.21474 2.16782 6.60594C1.83684 7.99714 2.01364 9.46082 2.66634 10.7332L1.33301 14.6665L5.26634 13.3332Z"
+                      stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span>7</span>
+                </div>
+                <div class="col d-inline">
+                  <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_188_5647)">
+                      <path
+                        d="M4.66634 6.66683V14.6668M9.99967 3.92016L9.33301 6.66683H13.2197C13.4267 6.66683 13.6308 6.71502 13.816 6.80759C14.0011 6.90016 14.1621 7.03457 14.2863 7.20016C14.4105 7.36576 14.4945 7.55799 14.5315 7.76165C14.5685 7.9653 14.5576 8.17478 14.4997 8.3735L12.9463 13.7068C12.8656 13.9838 12.6971 14.2271 12.4663 14.4002C12.2355 14.5733 11.9548 14.6668 11.6663 14.6668H2.66634C2.31272 14.6668 1.97358 14.5264 1.72353 14.2763C1.47348 14.0263 1.33301 13.6871 1.33301 13.3335V8.00016C1.33301 7.64654 1.47348 7.3074 1.72353 7.05735C1.97358 6.80731 2.31272 6.66683 2.66634 6.66683H4.50634C4.7544 6.6667 4.9975 6.59737 5.20831 6.46664C5.41912 6.33592 5.58929 6.14897 5.69967 5.92683L7.99967 1.3335C8.31406 1.33739 8.6235 1.41228 8.90488 1.55256C9.18625 1.69284 9.43229 1.8949 9.62461 2.14363C9.81693 2.39236 9.95055 2.68134 10.0155 2.98896C10.0804 3.29659 10.075 3.61492 9.99967 3.92016Z"
+                        stroke="black" stroke-linecap="round" stroke-linejoin="round" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_188_5647">
+                        <rect width="16" height="16" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <span>13</span>
+                </div>
+              </div>
+            </div>
+            <!--按鈕區-->
+            <div class="post-card-md-btn-list d-none d-md-block mt-5">
+              <div class="row mx-0">
+                <div class="col px-1">
+                  <button class="btn w-100">
+                    <span class="me-2">點讚</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                        stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="col px-1">
+                  <button class="btn w-100">
+                    <span class="me-2">留言</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                        stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="col ps-1 pe-0">
+                  <button class="btn w-100">
+                    <span class="me-2">追蹤貼文</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                        stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+                <div class="col px-1">
+                  <button class="btn w-100">
+                    <span class="me-2">編輯貼文</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M8.33366 14.6668H12.0003C12.3539 14.6668 12.6931 14.5264 12.9431 14.2763C13.1932 14.0263 13.3337 13.6871 13.3337 13.3335V4.66683L10.0003 1.3335H4.00033C3.6467 1.3335 3.30756 1.47397 3.05752 1.72402C2.80747 1.97407 2.66699 2.31321 2.66699 2.66683V9.00016M9.33366 1.3335V4.00016C9.33366 4.35378 9.47413 4.69292 9.72418 4.94297C9.97423 5.19302 10.3134 5.3335 10.667 5.3335H13.3337M8.91899 10.4175C9.05049 10.286 9.1548 10.1299 9.22596 9.95808C9.29713 9.78627 9.33376 9.60213 9.33376 9.41616C9.33376 9.2302 9.29713 9.04605 9.22596 8.87425C9.1548 8.70244 9.05049 8.54633 8.91899 8.41483C8.7875 8.28333 8.63139 8.17902 8.45958 8.10786C8.28777 8.03669 8.10362 8.00006 7.91766 8.00006C7.73169 8.00006 7.54755 8.03669 7.37574 8.10786C7.20393 8.17902 7.04782 8.28333 6.91632 8.41483L3.57633 11.7562C3.41782 11.9146 3.30181 12.1104 3.23899 12.3255L2.68099 14.2388C2.66426 14.2962 2.66326 14.357 2.67809 14.4149C2.69292 14.4728 2.72304 14.5256 2.76529 14.5679C2.80754 14.6101 2.86038 14.6402 2.91827 14.6551C2.97615 14.6699 3.03696 14.6689 3.09433 14.6522L5.00766 14.0942C5.22277 14.0313 5.41858 13.9153 5.57699 13.7568L8.91899 10.4175Z"
+                        stroke="#121212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="post-card-sm-btn-list d-block d-md-none mt-5">
+              <div class="row mx-0 mb-5">
+                <div class="col-6">
+                  <div class="row flex-nowrap">
+                    <div class="col ps-0 pe-1">
+                      <button class="btn">
+                        <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                            stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="col px-1">
+                      <button class="btn">
+                        <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                            stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
+                    <div class="col ps-1 pe-0">
+                      <button class="btn">
+                        <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                            stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--手機版領取區-->
+          <div class="d-lg-none">
+            <div class="bg-white rounded-3 p-5 mb-3">
+              <!--份數統計-->
+              <div class="row gx-0 mb-7">
+                <div class="col text-center border-end">
+                  <small>總共份量</small>
+                  <h3>25</h3>
+                </div>
+                <div class="col text-center border-end">
+                  <small>已領取</small>
+                  <h3>2</h3>
+                </div>
+                <div class="col text-center border-end">
+                  <small>預留</small>
+                  <h3>3</h3>
+                </div>
+                <div class="col text-center">
+                  <small>待領取</small>
+                  <h3>20</h3>
+                </div>
+              </div>
+              <!--領取按鈕-->
+              <div class="row py-7 gx-0 d-lg-flex d-none">
+                <button type="button" class="btn btn-dark d-flex align-items-center justify-content-center">
+                  <span class="me-2">我要領取</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1246_2155)">
+                      <path
+                        d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                        stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1246_2155">
+                        <rect width="16" height="16" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+              <!--取餐細節-->
+              <div class="py-7 border-top border-bottom border-gray-200 gx-0">
+                <div class="row justify-content-between gx-0 mb-2">
+                  <div class="col">食物名稱</div>
+                  <div class="col text-end">高級便當們</div>
+                </div>
+                <div class="row justify-content-between gx-0 mb-2">
+                  <div class="col">取餐地點</div>
+                  <div class="col text-end">台北市 / 內湖區</div>
+                </div>
+                <div class="row justify-content-between gx-0 mb-2">
+                  <div class="col">取餐時間</div>
+                  <div class="col text-end">14:00 ~ 16:00</div>
+                </div>
+                <div class="row justify-content-between gx-0 mb-2">
+                  <div class="col">食品有效期限</div>
+                  <div class="col text-end">2024/10/21</div>
+                </div>
+              </div>
+              <!--標籤區-->
+              <div class="row pt-7 pt-5">
+                <div class="d-flex flex-wrap gap-4">
+                  <h6>
+                    <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        fill="black" />
+                      <path
+                        d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <span class="fw-bold">素食</span>
+                  </h6>
+                  <h6>
+                    <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        fill="black" />
+                      <path
+                        d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <span class="fw-bold">葷食</span>
+                  </h6>
+                  <h6>
+                    <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        fill="black" />
+                      <path
+                        d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <span class="fw-bold">主食</span>
+                  </h6>
+                  <h6>
+                    <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        fill="black" />
+                      <path
+                        d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+
+                    <span class="fw-bold">冷藏</span>
+                  </h6>
+                  <h6>
+                    <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        fill="black" />
+                      <path
+                        d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      <path
+                        d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                        stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="fw-bold" style="width: auto">未過保鮮期</span>
+                  </h6>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--留言區-->
+          <div class="bg-white rounded-3 p-5 mt-5 mb-14">
+            <!--下拉式選單-->
+            <div>
+              <select class="form-select py-2 px-5" aria-label="Default select example"
+                style="width: 160px; height: 40px">
+                <option selected>全部留言</option>
+                <option value="1">最新排序</option>
+              </select>
+            </div>
+            <!--留言區1-->
+            <div class="message-area py-7 border-bottom border-gray-200">
+              <!--頭像 & 暱稱 & 樓層、時間-->
+              <div class="d-flex align-items-center justify-content-between">
+                <!--頭像-->
+                <div class="d-flex align-items-center justify-content-between mb-5">
+                  <img style="width: 48px; height: 48px" src="/Flavor_Trail/assets/Ellipse 1-1bdb61cb.png" alt="user-img" />
+                  <!--暱稱、樓層時間-->
+                  <div class="ms-5">
+                    <div class="fs-5 fw-bold">愛吃寶貝</div>
+                    <small class="text-gray-700">B1・今天下午 12:00</small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                想吃～但是太遠了QQ
+              </div>
+              <a href="#" class="link-success fw-bold">回覆</a>
+            </div>
+            <!--留言區2-->
+            <div class="message-area py-7 border-bottom border-gray-200">
+              <!--頭像 & 暱稱 & 樓層、時間-->
+              <div class="d-flex align-items-center justify-content-between">
+                <!--頭像-->
+                <div class="d-flex align-items-center justify-content-between mb-5">
+                  <img style="width: 48px; height: 48px" src="/Flavor_Trail/assets/Ellipse 5-01bf874f.png" alt="user-img" />
+                  <!--暱稱、樓層時間-->
+                  <div class="ms-5">
+                    <div class="fs-5 fw-bold">LEO</div>
+                    <small class="text-gray-700">B2・今天下午 12:30</small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                看起來超誘人,期待有幸領取到~感恩分享!~
+              </div>
+              <a href="#" class="link-success fw-bold">回覆</a>
+            </div>
+            <!--留言區3-->
+            <div class="message-area py-7 border-bottom border-gray-200">
+              <!--頭像 & 暱稱 & 樓層、時間-->
+              <div class="d-flex align-items-center justify-content-between">
+                <!--頭像-->
+                <div class="d-flex align-items-center justify-content-between mb-5">
+                  <img class="rounded-circle" style="width: 48px; height: 48px"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAA6PSURBVHgBrVpZcxzXdf56m559wQwGg52EAIjgAoqyLclSSk5cTlx5yEOe8pYfkH+WqjgPSTmpLBXHLhdtyZItUhRNSQRJECCWwWCbfXp68Xdv98z0LCBIypc1nJ6eO91n+c453zkN5b9+/nMP33V5HjTXEgdQ+ILrgAdQxbE48M9CUTW4ivis8p3HfP+uS8ebLiG004DiWBTelnJK2TxfYHnM/+Q//wPgdIOfevKcq6joalG+62+szOsrwJvrFFzrtnjooie5ovQcqYQ2B4Jj/DuhBP0A027Kz7ZqUJnYayvyWgrodh2auKEnBFIptBpYOoCK51vbV8YXJHzsL3fgkfC13S49asGmEha98mdVQCGmje4Z5bSl5eQ5YdVADkV+6gnkcY9/rKr+zvAKfu4rPnofnjTcNjTPQkdPvpI3Lt2huS0Y1rEUvncTRfxMUYaEUHxNAnmVMQF7io8rNJ5DVEIz1q1B97r4TgoIyOhWlXdxh28kMowSKKMMcD4MnWDjiMCD30xe/lfiOi6ijLUIPfJSGfES4dVunalPHbPSBAgL4Pj4kJ5ihvEQxK4iY6W/zxsoEn73lxuEuxrs9SSkxLLU6KsroDkdBmujD1Rxk17q68dA6NiD69/eDXnKHQin0giqogaxMfCY2Cq2eP0I8oZM0nsXSngi5SqRyxUQAavb1cHnkPCTrNYTWAjvOA46nQ4OysfQNBWFfA7xWEx+54dNoJCihq7Tc8mQEMF5v46I44jThKOP14sxBSL2mcQ3lAA6XmCdkCI9wXsvIWCj2cTDrx/jy0ffYuvZLlRdw+qVebz/zibW3rrCG+l9IzieI99VVe1ZYUQDL6RTTxHGBGHd1NMXK2BQS5EBhvGt9D+PeqCnwMHBIf7v17/BZ/ce4uj0HFHTRLGQw/PdA+ztVfDW1QVcX1/D8mIJqURSCj7Js6PLj6tBkaTqMqjD8dBXQEAnQtxLoQKh+wIHdGASlARs7n7yCX71m89ROa3K3+qagXLlDHaXxUnTYHUtfPtkG2Y0ilsba/jB5g3kp3J+bATKXLgU9GNFkfHQogImelbtK2CIoA0gowqeMqHiTLqRwHy90cTZeQ2ObSMVj8DukGbYOpJRjUq0sb39HGYsAZtQ297Zp1cO8Pd/+9eYmsoOXXs82wXnwjKIeJBeiA0UkJU2nG8D3Hsh6ITjYHAxscmRwkcYOB/fmMfabB4zhSlMFwuYmSkxlBR8u/UUv/z9QzzYPcFhpY7//MVdnJxV8U//+A9IplODWEDvPmEHjHIr4YVOACPFV0BjxQsL5o1YoX8uvCewjBmN4fS8ih+sFPE3767jyvIiEpkMIrEkDDMqKXQuP42riwv4HWPkX+5+iSflGn77+Ze4vbGKH330AWLMVH0j9TGDkTVIwb4XfCWk6kbACAeY71l9HD6j7+1WGy1CaPNKCUsL80jn8jDjKV94QfaEmzUFxVIJf/nh9/FXd9YIMxNdu4u7v7+P3b39UD0J/h81+gTTqq5PM1QBH5XVMyyYMoJ7ZaSghVer3UY8otEKOh7sneBFtQ2H/J6xzdho44zKNS1XxlSMQbzI7LQ4nUOMmeqrb57y9Rg2Y0fWCkyyfOAU9GqDf3/eQR7rKg/C+V0ssbVPJL0gnWE4ffaOzYiBVNTA1sEZXCpwfnaO1Ht3eN7Eva8e4snhKTL0ytJMFsv5DBaLeSwUUqg2O9g7ZkyUT9BltjIMY2Bnb/h+o8bzkeGS7FlUpOe+sBL9yFdCPxi/UG/vFQqUoSJt24F1UkG9UkZ8YQk4O4RGhTTDQ8NwcdDtYLFUwCpfZ00LdWawWNRkqtXHhJ20BuelVWVDpCrKBGrghSphmL6MXMil5Y63n+L2SomV10TDMZDMZhFnsYqbMUyXFqAymA/rrLzE/FTShGnqmCtOEXa6pBqrVxZ4LnJ5PQivHkkk7IYqcb9XHT7pF/MQfHpKNI4q6B7s4Prtm9i8GUOn3UD97ID5PU+rG3hr4yZSuWkGrIM0M1M6EwdYF1z20CbDZnW2iPWVK6E0+opL8eUS8NfDVu0J96qXa5+cIBuPIaIbsK0WWrUz6JEENDNBoV3GtY6FxXlmpDiMaJyGcdA43eN+FR9vvo0ZWirVqPFKM3iTJSiGLuP6Arbp53o1XAiHCZjG7MICWN5+jEq5wqCso6VHMVcow4aB9aU52Vek8gWki/PyJ2KcUsymkSG0MlqCGarLbm+42r509cPPrxf6EAMfjX5F6WciKMN7IBhoi1Zv1rB7VMaj/Rq2Ds9RrreZlSLIplJIJuMoEPfHXz/ECtmpRk+JLFW3HBQzUXooAjORDmZFLxNYyDFUXvsC6ap3gfDA5JwcWha5xla5jpNqA3/cPcbt+SI2Z3XppXgihudbj/EVg7fbsZAqFlngTDzdLaPraoilcr6Bshm80gq31F7vhKASI9llYiYY2dODVrI4gxdNDwVmnc0FHbeurWM2PyOzQ4T04MmTJyjv7nJUouK01kL3vI5j8qZsMktvROAyLjzGCS5ho74Co15gciEcdYSosjzdax0n6TFyoyyzjeA9R8cV/OTaMgS9SscTiIoXlcvMzWHlvIKdF9soEzoqFWlbFk6arNCsvlFWZo9c6fI1ueERbabuuuO492F3SS7i9ng8jmvXr+Off/ZveIe1oFU/x78++Br5dBLfW1vBxo0NVNstPNoro1atIhXze9p3r6/AKJYo/Gukz7EY8GRCEN32WGUNeDKGeSkm8vWbG9fINvN4uHeMPPE8n0mhlEtjhuRth8H94Nkz7FVOJXV4wj1Lc7NYmJ+HpuoISM5rLV+GHlqEB1Sj/4UIPt/6oSw0InD4XeyN0Qs/+vAD/Mf//C+S5D9ry7NIk+Pvlsu4t72DZ+Q6cc2TBWehmMPmtTVZ5IYkHzXuBKEnDRRcxfBjwNUiTOnd/oYhJUaEHzvH1zu3b2Brexu/+uwPuP90l8RMQ5OXq7Y6THMKrk6n8Bffu4l3CamowTjoNshOU5JuXxykL7k3tzmSj6p+JQ4r4PWmNJPS6gUXTyeT+PF7m2gd7+Pzb56jY9nkQjpmMgmsL0zjA1bd1dVrSLB4Oc1jRNhDONEUXDPpX78Xo6OxOrKkJ4INdjAAlgpYGku93cLLADlKuaXwYkoqKjWhl0+n8dGNZczEFDzfr3D6YOLO26vs0JaQFU1OhN0TG3yR+gw+DFHrFfKIPFTSDEvSCRrSczERWsrgfr5tPflMoa+AONvV43IqIXsKVXkFJXyoWV02Q4wjl5Q4w9z/3sY6PnrnFmKsDYlUmnCKyGGw4gbmNWg5BrCRnUF6+W3Umy1SEPbUnivpcUTnhJpVu//sQd7YHcQ7ZXAUU8JHrH4esziX94RwqjIpAfkiB+4WilhkmFUxjajWYFE4T2QVesJkDUins+xz6VVa3TB8vi+af5fzf3EPJTWF2MKajB/RD8wvLkLnuSZMlKuccrQsPz4CQMsHV6Hs0yVieksPA6KrJzjcaoxZvcVgPK9x3M2mxXY82ahX2S4eHpaxurKIJudBiQDA7ToVYj0ozC1LkibqjAJ/AGZ32jByJUTm34LCKiw6MY/fx2NRJBOsyl4RFsmdbXXgtJvotuoc1VhD1uxynOKE+PJQPyBmLRq7fVX2m6TL7Jh2D07weGcPOwdlebMuu6pkMkVMRzjf2cf9P25xdLiMD+5cl7jUvCZnQg66jXPejIRVQIiW1ukZI78Ao3QVz3Yr2D96jBgNIqqzzrSq03s6yV6ONWQql4TGmGrXzkm/j/horeODgvFjqfEhA4/NRjtaijPIM6m1aMZJarDBYrWychW1Wh21BlMgBSyXj7DAomQS98ccJ7YdBamldbaQZWkfXbDPWAp6goInpxCZYuVl5nnwzQ5esDKLgVibJK/dtqR3BJSEF6anpyS07txaRyyZlh5onB9DTAk6WnpU3HEFRHm2+HindnKAJoVaubokG3cRiLZjyxu7nGR4jgvb85v6Wr1BryQQKTDbrN3irIj455RC50sR+V0T4alwhnokp9YiSTT4m9JMHrPsj00Kb7MBesE56vbuIWbZ+H/2xSP88L0biKaysESn11GGoHOhAmLZjPInpMmfcG7zk4++jyz73EIuJ4WNiiGU3CVmoBE57hCDKYlnCMiYfqWlkI7sTRkDPBCHBc5DZ2dnOB9dQbPWkKOUCPGvCW8xxV5bv4L//sWnnN6dcEAcwT7huzg/DcdIo8u4mLQufEJzY+OGzCKffnEf+XwR59U6TFp0rsSxyGyJc50YL16CRo8J7ziElXzAJCYMkueIAIbEuMg8wmNCULGsTpeIsKGxsdcpuKgPUhhS648/vIOvv31GXsWGiP3DGSl4tdG5SEwolz2pP6oc4e6nX2A6n5Zcaf/wCJlMGltP2dvSI7OFAjbWFpFjw35wdMIxY4sz0SLmCYMEYSUHVoqviHjYISDUqjWZ1aqSDk9zMpHOJGXhdxxP5nyR5XTuOzmroVpvvky8yxUQS0zf/nDvHrHeQoLZREzcolFd4lYIeHJySghZEtuZdE5WZofpUJdQEuVBk9aNMnNl0/w98d9mSt07rKA4ncff/fRjDriOscPgFtV2aXGOsGUAO+5lor3ac2IxEvzw/fdllTQF/SP2d18c0DoNPNs5wNP6rhytJxNRGQvn1aaMDTkb1dT+MzKRNreePqfiHTTogdubt+STnXv3H3GKYdNQXcwys6VSyVcSXizldf/YQ7g2QytypEcMG5JAVlmNG8wUcQ50U4RXk9y/XKkgyWcCYr+4gejEquydRVFz7DaHWQZ+9u//jxSpt+uqeJsBvLZ6VY5iXksevOayaZnj05rEcpTTh2TMRIT0WWHmElCJsCcQ0wbDf5DMDMoMI6ZunAXNFhxmJpsT7bpsJ3/64x/CclQ2P0UZzG+y3vivVYSLG4wF8VIDCqUqrOBVnxDaJHliuK6ojt+e8nsRMyL72KwvNRax6dI8vuv6E9kdfjDWPA9IAAAAAElFTkSuQmCC" alt="user-img" />
+                  <!--暱稱、樓層時間-->
+                  <div class="ms-5">
+                    <div class="fs-5 fw-bold">Alice</div>
+                    <small class="text-gray-700">B3・今天下午 1:30</small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                已申請領取希望可以通過！謝謝樓主的暖心舉動！
+              </div>
+              <a href="#" class="link-success fw-bold">回覆</a>
+            </div>
+            <!--留言區4-->
+            <div class="message-area py-7 border-bottom border-gray-200">
+              <!--頭像 & 暱稱 & 樓層、時間-->
+              <div class="d-flex align-items-center justify-content-between">
+                <!--頭像-->
+                <div class="d-flex align-items-center justify-content-between mb-5">
+                  <img style="width: 48px; height: 48px" src="/Flavor_Trail/assets/Ellipse 7-93aec212.png" alt="user-img" />
+                  <!--暱稱、樓層時間-->
+                  <div class="ms-5">
+                    <div class="fs-5 fw-bold">煞氣 乂 Kelly</div>
+                    <small class="text-gray-700">B4・今天下午 2:30</small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-5">
+                啊啊啊啊啊 剛好今天開會不及買午餐，這家便當超好吃的
+              </div>
+              <a href="#" class="link-success fw-bold">回覆</a>
+            </div>
+            <!--留言區5-->
+            <div class="message-area py-7 border-bottom border-gray-200">
+              <!--頭像 & 暱稱 & 樓層、時間-->
+              <div class="d-flex align-items-center justify-content-between">
+                <!--頭像-->
+                <div class="d-flex align-items-center justify-content-between mb-5">
+                  <img style="width: 48px; height: 48px" src="/Flavor_Trail/assets/Ellipse 8-ce542028.png" alt="user-img" />
+                  <!--暱稱、樓層時間-->
+                  <div class="ms-5">
+                    <div class="fs-5 fw-bold">Ariel</div>
+                    <small class="text-gray-700">B5・今天下午 3:30</small>
+                  </div>
+                </div>
+                <div class="bg-dark text-white rounded-3 py-1 px-2">
+                  領取人評價
+                </div>
+              </div>
+              <div class="mb-5">
+                感謝分享，超好吃的！今天的午後因為你的分享變得更美好了~
+              </div>
+              <a href="#" class="link-success fw-bold">回覆</a>
+            </div>
+            <!--留言輸入框-->
+            <div class="input-group mt-7">
+              <input type="text" class="form-control" placeholder="寫下你的留言" aria-label="寫下你的留言"
+                aria-describedby="button-addon2" />
+              <span class="input-group-text" style="cursor: pointer;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_188_5759)">
+                    <path
+                      d="M7.27526 8.72361C7.14785 8.59643 6.996 8.49636 6.82888 8.42945L1.54221 6.30945C1.47909 6.28412 1.42523 6.24009 1.38785 6.18327C1.35047 6.12645 1.33138 6.05955 1.33312 5.99156C1.33486 5.92357 1.35736 5.85774 1.39759 5.8029C1.43783 5.74806 1.49388 5.70685 1.55821 5.68479L14.2249 1.35145C14.2839 1.33012 14.3479 1.32604 14.4092 1.33971C14.4705 1.35338 14.5266 1.38423 14.571 1.42864C14.6154 1.47305 14.6463 1.52919 14.66 1.59049C14.6736 1.65179 14.6695 1.71571 14.6482 1.77479L10.3149 14.4415C10.2928 14.5058 10.2516 14.5618 10.1968 14.6021C10.1419 14.6423 10.0761 14.6648 10.0081 14.6665C9.94011 14.6683 9.87322 14.6492 9.81639 14.6118C9.75957 14.5744 9.71554 14.5206 9.69021 14.4575L7.57021 9.16945C7.503 9.00245 7.40266 8.85079 7.27526 8.72361ZM7.27526 8.72361L14.5689 1.43145"
+                      stroke="#484848" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_188_5759">
+                      <rect width="16" height="16" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <!--其他可領取區-->
+          <div class="mt-5">
+            <h3 class="mb-7 fs-1 fw-bolder">其他可領取</h3>
+            <!--其他可領取區1-->
+            <div class="bg-white rounded-3 p-5 mb-5">
+              <a href="#" class="card border-0 bg-white">
+                <div class="row flex-column flex-lg-row-reverse">
+                  <div class="col-xxl-5 tect-align-center">
+                    <img src="/Flavor_Trail/assets/post-2-27b47c2f.jpg" class="img-fluid rounded-3 object-fit-cover h-100 w-100"
+                      alt="post-2" style="min-height: 319px;">
+                  </div>
+                  <div class="col-xxl-7">
+                    <div class="pt-7">
+                      <div class="d-flex flex-column flex-lg-row justify-content-between">
+                        <!--頭像 & 暱稱 & 樓層時間-->
+                        <div class="d-flex align-items-center">
+                          <!--頭像-->
+                          <div class="pe-5 mb-1">
+                            <img src="/Flavor_Trail/assets/Ellipse 2-cce6f7b0.png" alt="user-img"
+                              style="width: 48px; height: 48px" />
+                          </div>
+                          <!--暱稱、樓層時間-->
+                          <div class="my-5">
+                            <div class="fs-5 fw-bold">伯朗大道</div>
+                            <div style="font-size: 14px">
+                              台北市 / 信義區· 2hr
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="m-0 opacity-100 text-gray-200">
+                        <!--mobile標籤區-->
+                        <div class="d-flex d-xl-none align-items-center pt-7 mb-5 gap-2">
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">預留中</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                          </h5>
+                        </div>
+                        <!--pc標籤區-->
+                        <div class="d-none d-xl-flex align-items-center justify-content-end px-0 gap-2">
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">預留中</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                          </h5>
+                        </div>
+                      </div>
+                      <!--內文-->
+                      <hr class="m-0 opacity-100 text-gray-200 d-none d-lg-block">
+                      <div class="row my-3">
+                        <h4>知名咖啡買一送一，有沒有人要幫忙喝</h4>
+                        <p style="
+                              white-space: nowrap;
+                              overflow: hidden;
+                              text-overflow: ellipsis;
+                            " class="py-3">
+                          我已經喝了一杯，再來一杯恐怕是要整晚失眠。有沒有在附近正好需要提神的朋友。
+                        </p>
+                      </div>
+                      <!--觀看數、留言數、按讚數-->
+                      <div class="row my-3 px-3">
+                        <h6 class="row w-auto d-inline justify-content-start pb-3">
+                          <div class="col d-inline ps-0">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M1.37468 8.23224C1.31912 8.08256 1.31912 7.91792 1.37468 7.76824C1.91581 6.45614 2.83435 5.33427 4.01386 4.54484C5.19336 3.75541 6.58071 3.33398 8.00001 3.33398C9.41932 3.33398 10.8067 3.75541 11.9862 4.54484C13.1657 5.33427 14.0842 6.45614 14.6253 7.76824C14.6809 7.91792 14.6809 8.08256 14.6253 8.23224C14.0842 9.54434 13.1657 10.6662 11.9862 11.4556C10.8067 12.2451 9.41932 12.6665 8.00001 12.6665C6.58071 12.6665 5.19336 12.2451 4.01386 11.4556C2.83435 10.6662 1.91581 9.54434 1.37468 8.23224Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path
+                                d="M8.00001 10.0002C9.10458 10.0002 10 9.10481 10 8.00024C10 6.89567 9.10458 6.00024 8.00001 6.00024C6.89544 6.00024 6.00001 6.89567 6.00001 8.00024C6.00001 9.10481 6.89544 10.0002 8.00001 10.0002Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>209</span>
+                          </div>
+                          <div class="col d-inline">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M5.26634 13.3332C6.53873 13.9859 8.0024 14.1627 9.3936 13.8317C10.7848 13.5007 12.012 12.6838 12.8542 11.528C13.6963 10.3722 14.098 8.95367 13.9867 7.52798C13.8755 6.10228 13.2587 4.76318 12.2475 3.752C11.2364 2.74081 9.89727 2.12404 8.47157 2.01281C7.04587 1.90159 5.62732 2.30323 4.47155 3.14537C3.31579 3.9875 2.4988 5.21474 2.16782 6.60594C1.83684 7.99714 2.01364 9.46082 2.66634 10.7332L1.33301 14.6665L5.26634 13.3332Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>13</span>
+                          </div>
+                          <div class="col d-inline">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_188_5647)">
+                                <path
+                                  d="M4.66634 6.66683V14.6668M9.99967 3.92016L9.33301 6.66683H13.2197C13.4267 6.66683 13.6308 6.71502 13.816 6.80759C14.0011 6.90016 14.1621 7.03457 14.2863 7.20016C14.4105 7.36576 14.4945 7.55799 14.5315 7.76165C14.5685 7.9653 14.5576 8.17478 14.4997 8.3735L12.9463 13.7068C12.8656 13.9838 12.6971 14.2271 12.4663 14.4002C12.2355 14.5733 11.9548 14.6668 11.6663 14.6668H2.66634C2.31272 14.6668 1.97358 14.5264 1.72353 14.2763C1.47348 14.0263 1.33301 13.6871 1.33301 13.3335V8.00016C1.33301 7.64654 1.47348 7.3074 1.72353 7.05735C1.97358 6.80731 2.31272 6.66683 2.66634 6.66683H4.50634C4.7544 6.6667 4.9975 6.59737 5.20831 6.46664C5.41912 6.33592 5.58929 6.14897 5.69967 5.92683L7.99967 1.3335C8.31406 1.33739 8.6235 1.41228 8.90488 1.55256C9.18625 1.69284 9.43229 1.8949 9.62461 2.14363C9.81693 2.39236 9.95055 2.68134 10.0155 2.98896C10.0804 3.29659 10.075 3.61492 9.99967 3.92016Z"
+                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_188_5647">
+                                  <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <span>45</span>
+                          </div>
+                        </h6>
+                      </div>
+                      <hr class="m-0 opacity-100 text-gray-200">
+                      <!--按鈕區-->
+                      <div class="post-card-md-btn-list d-none d-md-block mt-5">
+                        <div class="row mx-0">
+                          <div class="col px-1">
+                            <button type="button"
+                              class="btn btn-dark w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">我要領取</small>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1246_2155)">
+                                  <path
+                                    d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  </path>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1246_2155">
+                                    <rect width="16" height="16" fill="white"></rect>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col px-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">點讚</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col px-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">留言</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col ps-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">追蹤貼文</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-card-sm-btn-list d-block d-md-none mt-5">
+                        <div class="row mx-0 mb-5">
+                          <div class="col-6">
+                            <div class="row flex-nowrap">
+                              <div class="col ps-0 pe-1">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="col px-1">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="col ps-1 pe-0">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row my-4 gx-0 d-lg-none d-flex">
+                          <button type="button" class="btn btn-dark">
+                            <span class="me-2">我要領取</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_1246_2155)">
+                                <path
+                                  d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_1246_2155">
+                                  <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!--其他可領取區2-->
+            <div class="bg-white rounded-3 p-5 mb-5">
+              <a href="#" class="card border-0 bg-white">
+                <div class="row flex-column flex-lg-row-reverse">
+                  <div class="col-xxl-5 tect-align-center">
+                    <img src="/Flavor_Trail/assets/post-3-38caf32b.jpg" class="img-fluid rounded-3 object-fit-cover h-100 w-100"
+                      alt="post-3" style="min-height: 319px;">
+                  </div>
+                  <div class="col-xxl-7">
+                    <div class="pt-7">
+                      <div class="d-flex flex-column flex-lg-row justify-content-between">
+                        <!--頭像 & 暱稱 & 樓層時間-->
+                        <div class="d-flex align-items-center">
+                          <!--頭像-->
+                          <div class="pe-5 mb-1">
+                            <img src="/Flavor_Trail/assets/Ellipse 3-fffece76.png" alt="user-img"
+                              style="width: 48px; height: 48px" />
+                          </div>
+                          <!--暱稱、樓層時間-->
+                          <div class="my-5">
+                            <div class="fs-5 fw-bold">台北蒸煮丹</div>
+                            <div style="font-size: 14px">
+                              台北市 / 信義區· 2hr
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="m-0 opacity-100 text-gray-200">
+                        <!--mobile標籤區-->
+                        <div class="d-flex d-xl-none align-items-center pt-7 mb-5 gap-2">
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                          </h5>
+                        </div>
+                        <!--pc標籤區-->
+                        <div class="d-none d-xl-flex align-items-center justify-content-end px-0 gap-2">
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                          </h5>
+                        </div>
+                      </div>
+                      <!--內文-->
+                      <hr class="m-0 opacity-100 text-gray-200 d-none d-lg-block">
+                      <div class="row my-3">
+                        <h4>好吃到不行的披薩在這裡等你來領</h4>
+                        <p style="
+                              white-space: nowrap;
+                              overflow: hidden;
+                              text-overflow: ellipsis;
+                            " class="py-3">
+                          突然好想吃披薩買了一盒，結果自己吃不完～～有人要幫忙吃嗎?...
+                        </p>
+                      </div>
+                      <!--觀看數、留言數、按讚數-->
+                      <div class="row my-3 px-3">
+                        <h6 class="row w-auto d-inline justify-content-start pb-3">
+                          <div class="col d-inline ps-0">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M1.37468 8.23224C1.31912 8.08256 1.31912 7.91792 1.37468 7.76824C1.91581 6.45614 2.83435 5.33427 4.01386 4.54484C5.19336 3.75541 6.58071 3.33398 8.00001 3.33398C9.41932 3.33398 10.8067 3.75541 11.9862 4.54484C13.1657 5.33427 14.0842 6.45614 14.6253 7.76824C14.6809 7.91792 14.6809 8.08256 14.6253 8.23224C14.0842 9.54434 13.1657 10.6662 11.9862 11.4556C10.8067 12.2451 9.41932 12.6665 8.00001 12.6665C6.58071 12.6665 5.19336 12.2451 4.01386 11.4556C2.83435 10.6662 1.91581 9.54434 1.37468 8.23224Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path
+                                d="M8.00001 10.0002C9.10458 10.0002 10 9.10481 10 8.00024C10 6.89567 9.10458 6.00024 8.00001 6.00024C6.89544 6.00024 6.00001 6.89567 6.00001 8.00024C6.00001 9.10481 6.89544 10.0002 8.00001 10.0002Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>99</span>
+                          </div>
+                          <div class="col d-inline">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M5.26634 13.3332C6.53873 13.9859 8.0024 14.1627 9.3936 13.8317C10.7848 13.5007 12.012 12.6838 12.8542 11.528C13.6963 10.3722 14.098 8.95367 13.9867 7.52798C13.8755 6.10228 13.2587 4.76318 12.2475 3.752C11.2364 2.74081 9.89727 2.12404 8.47157 2.01281C7.04587 1.90159 5.62732 2.30323 4.47155 3.14537C3.31579 3.9875 2.4988 5.21474 2.16782 6.60594C1.83684 7.99714 2.01364 9.46082 2.66634 10.7332L1.33301 14.6665L5.26634 13.3332Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>2</span>
+                          </div>
+                          <div class="col d-inline">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_188_5647)">
+                                <path
+                                  d="M4.66634 6.66683V14.6668M9.99967 3.92016L9.33301 6.66683H13.2197C13.4267 6.66683 13.6308 6.71502 13.816 6.80759C14.0011 6.90016 14.1621 7.03457 14.2863 7.20016C14.4105 7.36576 14.4945 7.55799 14.5315 7.76165C14.5685 7.9653 14.5576 8.17478 14.4997 8.3735L12.9463 13.7068C12.8656 13.9838 12.6971 14.2271 12.4663 14.4002C12.2355 14.5733 11.9548 14.6668 11.6663 14.6668H2.66634C2.31272 14.6668 1.97358 14.5264 1.72353 14.2763C1.47348 14.0263 1.33301 13.6871 1.33301 13.3335V8.00016C1.33301 7.64654 1.47348 7.3074 1.72353 7.05735C1.97358 6.80731 2.31272 6.66683 2.66634 6.66683H4.50634C4.7544 6.6667 4.9975 6.59737 5.20831 6.46664C5.41912 6.33592 5.58929 6.14897 5.69967 5.92683L7.99967 1.3335C8.31406 1.33739 8.6235 1.41228 8.90488 1.55256C9.18625 1.69284 9.43229 1.8949 9.62461 2.14363C9.81693 2.39236 9.95055 2.68134 10.0155 2.98896C10.0804 3.29659 10.075 3.61492 9.99967 3.92016Z"
+                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_188_5647">
+                                  <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <span>30</span>
+                          </div>
+                        </h6>
+                      </div>
+                      <hr class="m-0 opacity-100 text-gray-200">
+                      <!--按鈕區-->
+                      <div class="post-card-md-btn-list d-none d-md-block mt-5">
+                        <div class="row mx-0">
+                          <div class="col px-1">
+                            <button type="button"
+                              class="btn btn-dark w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">我要領取</small>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1246_2155)">
+                                  <path
+                                    d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  </path>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1246_2155">
+                                    <rect width="16" height="16" fill="white"></rect>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col px-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">點讚</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col px-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">留言</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col ps-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">追蹤貼文</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-card-sm-btn-list d-block d-md-none mt-5">
+                        <div class="row mx-0 mb-5">
+                          <div class="col-6">
+                            <div class="row flex-nowrap">
+                              <div class="col ps-0 pe-1">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="col px-1">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="col ps-1 pe-0">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row my-4 gx-0 d-lg-none d-flex">
+                          <button type="button" class="btn btn-dark">
+                            <span class="me-2">我要領取</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_1246_2155)">
+                                <path
+                                  d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_1246_2155">
+                                  <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <!--其他可領取區3-->
+            <div class="bg-white rounded-3 p-5 mb-19">
+              <a href="#" class="card border-0 bg-white">
+                <div class="row flex-column flex-lg-row-reverse">
+                  <div class="col-xxl-5 tect-align-center">
+                    <img src="/Flavor_Trail/assets/post-4-afc9c8ea.jpg"
+                      class="img-fluid rounded-3 object-fit-cover h-100 w-100" alt="post-4" style="min-height: 319px;">
+                  </div>
+                  <div class="col-xxl-7">
+                    <div class="pt-7">
+                      <div class="d-flex flex-column flex-lg-row justify-content-between">
+                        <!--頭像 & 暱稱 & 樓層時間-->
+                        <div class="d-flex align-items-center">
+                          <!--頭像-->
+                          <div class="pe-5 mb-1">
+                            <img src="/Flavor_Trail/assets/Ellipse 4-ad056762.png" alt="user-img"
+                              style="width: 48px; height: 48px" />
+                          </div>
+                          <!--暱稱、樓層時間-->
+                          <div class="my-5">
+                            <div class="fs-5 fw-bold">台中小鋼炮</div>
+                            <div style="font-size: 14px">
+                              台中市 / 中西區· 2hr
+                            </div>
+                          </div>
+                        </div>
+                        <hr class="m-0 opacity-100 text-gray-200">
+                        <!--mobile標籤區-->
+                        <div class="d-flex d-xl-none align-items-center pt-7 mb-5 gap-2">
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                          </h5>
+                        </div>
+                        <!--pc標籤區-->
+                        <div class="d-none d-xl-flex align-items-center justify-content-end px-0 gap-2">
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">熱門</span>
+                          </h5>
+                          <h5>
+                            <span class="bg-primary rounded-3 fs-6 text-white py-1 px-2">仍可領取</span>
+                          </h5>
+                        </div>
+                      </div>
+                      <!--內文-->
+                      <hr class="m-0 opacity-100 text-gray-200 d-none d-lg-block">
+                      <div class="row my-3">
+                        <h4>氣氣7777777便當沒發完不能下班</h4>
+                        <p style="
+                                  white-space: nowrap;
+                                  overflow: hidden;
+                                  text-overflow: ellipsis;
+                                " class="py-3">
+                          我要發完便當才能下班＠＠快來當好心人幫忙吃便當。地點在台中科技大學的資訊...
+                        </p>
+                      </div>
+                      <!--觀看數、留言數、按讚數-->
+                      <div class="row my-3 px-3">
+                        <h6 class="row w-auto d-inline justify-content-start pb-3">
+                          <div class="col d-inline ps-0">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M1.37468 8.23224C1.31912 8.08256 1.31912 7.91792 1.37468 7.76824C1.91581 6.45614 2.83435 5.33427 4.01386 4.54484C5.19336 3.75541 6.58071 3.33398 8.00001 3.33398C9.41932 3.33398 10.8067 3.75541 11.9862 4.54484C13.1657 5.33427 14.0842 6.45614 14.6253 7.76824C14.6809 7.91792 14.6809 8.08256 14.6253 8.23224C14.0842 9.54434 13.1657 10.6662 11.9862 11.4556C10.8067 12.2451 9.41932 12.6665 8.00001 12.6665C6.58071 12.6665 5.19336 12.2451 4.01386 11.4556C2.83435 10.6662 1.91581 9.54434 1.37468 8.23224Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                              <path
+                                d="M8.00001 10.0002C9.10458 10.0002 10 9.10481 10 8.00024C10 6.89567 9.10458 6.00024 8.00001 6.00024C6.89544 6.00024 6.00001 6.89567 6.00001 8.00024C6.00001 9.10481 6.89544 10.0002 8.00001 10.0002Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>189</span>
+                          </div>
+                          <div class="col d-inline">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M5.26634 13.3332C6.53873 13.9859 8.0024 14.1627 9.3936 13.8317C10.7848 13.5007 12.012 12.6838 12.8542 11.528C13.6963 10.3722 14.098 8.95367 13.9867 7.52798C13.8755 6.10228 13.2587 4.76318 12.2475 3.752C11.2364 2.74081 9.89727 2.12404 8.47157 2.01281C7.04587 1.90159 5.62732 2.30323 4.47155 3.14537C3.31579 3.9875 2.4988 5.21474 2.16782 6.60594C1.83684 7.99714 2.01364 9.46082 2.66634 10.7332L1.33301 14.6665L5.26634 13.3332Z"
+                                stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            <span>7</span>
+                          </div>
+                          <div class="col d-inline">
+                            <svg class="me-2" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_188_5647)">
+                                <path
+                                  d="M4.66634 6.66683V14.6668M9.99967 3.92016L9.33301 6.66683H13.2197C13.4267 6.66683 13.6308 6.71502 13.816 6.80759C14.0011 6.90016 14.1621 7.03457 14.2863 7.20016C14.4105 7.36576 14.4945 7.55799 14.5315 7.76165C14.5685 7.9653 14.5576 8.17478 14.4997 8.3735L12.9463 13.7068C12.8656 13.9838 12.6971 14.2271 12.4663 14.4002C12.2355 14.5733 11.9548 14.6668 11.6663 14.6668H2.66634C2.31272 14.6668 1.97358 14.5264 1.72353 14.2763C1.47348 14.0263 1.33301 13.6871 1.33301 13.3335V8.00016C1.33301 7.64654 1.47348 7.3074 1.72353 7.05735C1.97358 6.80731 2.31272 6.66683 2.66634 6.66683H4.50634C4.7544 6.6667 4.9975 6.59737 5.20831 6.46664C5.41912 6.33592 5.58929 6.14897 5.69967 5.92683L7.99967 1.3335C8.31406 1.33739 8.6235 1.41228 8.90488 1.55256C9.18625 1.69284 9.43229 1.8949 9.62461 2.14363C9.81693 2.39236 9.95055 2.68134 10.0155 2.98896C10.0804 3.29659 10.075 3.61492 9.99967 3.92016Z"
+                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_188_5647">
+                                  <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                            <span>38</span>
+                          </div>
+                        </h6>
+                      </div>
+                      <hr class="m-0 opacity-100 text-gray-200">
+                      <!--按鈕區-->
+                      <div class="post-card-md-btn-list d-none d-md-block mt-5">
+                        <div class="row mx-0">
+                          <div class="col px-1">
+                            <button type="button"
+                              class="btn btn-dark w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">我要領取</small>
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_1246_2155)">
+                                  <path
+                                    d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                  </path>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_1246_2155">
+                                    <rect width="16" height="16" fill="white"></rect>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col px-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">點讚</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col px-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">留言</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="col ps-1">
+                            <button class="btn w-100 p-4 d-flex align-items-center justify-content-center">
+                              <small class="me-1">追蹤貼文</small>
+                              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                                  stroke="#121212" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-card-sm-btn-list d-block d-md-none mt-5">
+                        <div class="row mx-0 mb-5">
+                          <div class="col-6">
+                            <div class="row flex-nowrap">
+                              <div class="col ps-0 pe-1">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7 10V22M15 5.88L14 10H19.83C20.1405 10 20.4467 10.0723 20.7244 10.2111C21.0021 10.35 21.2437 10.5516 21.43 10.8C21.6163 11.0484 21.7422 11.3367 21.7977 11.6422C21.8533 11.9477 21.8369 12.2619 21.75 12.56L19.42 20.56C19.2988 20.9754 19.0462 21.3404 18.7 21.6C18.3538 21.8596 17.9327 22 17.5 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V12C2 11.4696 2.21071 10.9609 2.58579 10.5858C2.96086 10.2107 3.46957 10 4 10H6.76C7.13208 9.9998 7.49674 9.89581 7.81296 9.69972C8.12917 9.50363 8.38442 9.22321 8.55 8.89L12 2C12.4716 2.00584 12.9357 2.11817 13.3578 2.3286C13.7799 2.53902 14.1489 2.84211 14.4374 3.2152C14.7259 3.5883 14.9263 4.02176 15.0237 4.4832C15.1212 4.94464 15.113 5.42213 15 5.88Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="col px-1">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M7.9 20C9.80858 20.9791 12.0041 21.2443 14.0909 20.7478C16.1777 20.2514 18.0186 19.0259 19.2818 17.2922C20.545 15.5586 21.1474 13.4308 20.9806 11.2922C20.8137 9.15366 19.8886 7.14502 18.3718 5.62824C16.855 4.11146 14.8464 3.1863 12.7078 3.01946C10.5693 2.85263 8.44147 3.45509 6.70782 4.71829C4.97417 5.98149 3.74869 7.82236 3.25222 9.90916C2.75575 11.996 3.02094 14.1915 4 16.1L2 22L7.9 20Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                              <div class="col ps-1 pe-0">
+                                <button class="btn">
+                                  <svg class="d-block" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                      d="M10.3 21C10.4674 21.3044 10.7134 21.5583 11.0125 21.7352C11.3115 21.912 11.6526 22.0053 12 22.0053C12.3474 22.0053 12.6885 21.912 12.9875 21.7352C13.2866 21.5583 13.5326 21.3044 13.7 21M6 8C6 6.4087 6.63214 4.88258 7.75736 3.75736C8.88258 2.63214 10.4087 2 12 2C13.5913 2 15.1174 2.63214 16.2426 3.75736C17.3679 4.88258 18 6.4087 18 8C18 15 21 17 21 17H3C3 17 6 15 6 8Z"
+                                      stroke="#121212" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row my-4 gx-0 d-lg-none d-flex">
+                          <button type="button" class="btn btn-dark">
+                            <span class="me-2">我要領取</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_1246_2155)">
+                                <path
+                                  d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                                  stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_1246_2155">
+                                  <rect width="16" height="16" fill="white"></rect>
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- <button class="btn btn-dark floating-btn d-lg-none" style="width: 90%">
+              <span class="me-2">我要領取</span><img src="/assets/images/icon/hand.svg" alt="" />
+            </button> -->
+          </div>
+        </div>
+        <!--右邊領取區-->
+        <div class="col-lg-4 d-none d-lg-block">
+          <div class="mb-19 bg-white rounded-3 p-5 mb-3 sticky-top z-1">
+            <!--份數統計-->
+            <div class="row gx-0">
+              <div class="col text-center border-end">
+                <small>總共份量</small>
+                <h3>25</h3>
+              </div>
+              <div class="col text-center border-end">
+                <small>已領取</small>
+                <h3>2</h3>
+              </div>
+              <div class="col text-center border-end">
+                <small>預留</small>
+                <h3>3</h3>
+              </div>
+              <div class="col text-center">
+                <small>待領取</small>
+                <h3>20</h3>
+              </div>
+            </div>
+            <!--領取按鈕-->
+            <div class="row py-7 gx-0 d-lg-flex d-none">
+              <button type="button" class="btn btn-dark d-flex align-items-center justify-content-center">
+                <span class="me-2">我要領取</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_1246_2155)">
+                    <path
+                      d="M11.9997 7.3335V4.00016C11.9997 3.64654 11.8593 3.3074 11.6092 3.05735C11.3592 2.80731 11.02 2.66683 10.6664 2.66683C10.3128 2.66683 9.97365 2.80731 9.7236 3.05735C9.47355 3.3074 9.33308 3.64654 9.33308 4.00016M9.33308 6.66683V2.66683C9.33308 2.31321 9.1926 1.97407 8.94255 1.72402C8.6925 1.47397 8.35337 1.3335 7.99974 1.3335C7.64612 1.3335 7.30698 1.47397 7.05693 1.72402C6.80689 1.97407 6.66641 2.31321 6.66641 2.66683V4.00016M6.66641 4.00016V7.00016M6.66641 4.00016C6.66641 3.64654 6.52593 3.3074 6.27589 3.05735C6.02584 2.80731 5.6867 2.66683 5.33308 2.66683C4.97945 2.66683 4.64032 2.80731 4.39027 3.05735C4.14022 3.3074 3.99974 3.64654 3.99974 4.00016V9.3335M11.9997 5.3335C11.9997 4.97987 12.1402 4.64074 12.3903 4.39069C12.6403 4.14064 12.9795 4.00016 13.3331 4.00016C13.6867 4.00016 14.0258 4.14064 14.2759 4.39069C14.5259 4.64074 14.6664 4.97987 14.6664 5.3335V9.3335C14.6664 10.748 14.1045 12.1045 13.1043 13.1047C12.1041 14.1049 10.7476 14.6668 9.33308 14.6668H7.99974C6.13308 14.6668 4.99974 14.0935 4.00641 13.1068L1.60641 10.7068C1.37703 10.4528 1.25413 10.1203 1.26316 9.77812C1.27218 9.43597 1.41244 9.1104 1.65489 8.8688C1.89734 8.62721 2.22341 8.48811 2.56559 8.48029C2.90777 8.47248 3.23985 8.59656 3.49308 8.82683L4.66641 10.0002"
+                      stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1246_2155">
+                      <rect width="16" height="16" fill="white"></rect>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+            <!--取餐細節-->
+            <div class="py-7 border-top border-bottom border-gray-200 gx-0">
+              <div class="row justify-content-between gx-0 mb-2">
+                <div class="col">食物名稱</div>
+                <div class="col text-end">高級便當們</div>
+              </div>
+              <div class="row justify-content-between gx-0 mb-2">
+                <div class="col">取餐地點</div>
+                <div class="col text-end">台北市 / 內湖區</div>
+              </div>
+              <div class="row justify-content-between gx-0 mb-2">
+                <div class="col">取餐時間</div>
+                <div class="col text-end">14:00 ~ 16:00</div>
+              </div>
+              <div class="row justify-content-between gx-0 mb-2">
+                <div class="col">食品有效期限</div>
+                <div class="col text-end">2024/10/21</div>
+              </div>
+            </div>
+            <!--標籤區-->
+            <div class="row pt-7 pt-5">
+              <div class="d-flex flex-wrap flex-xxl-nowrap gap-4">
+                <h6>
+                  <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      fill="black" />
+                    <path
+                      d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+
+                  <span class="fw-bold">素食</span>
+                </h6>
+                <h6>
+                  <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      fill="black" />
+                    <path
+                      d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+
+                  <span class="fw-bold">葷食</span>
+                </h6>
+                <h6>
+                  <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      fill="black" />
+                    <path
+                      d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+
+                  <span class="fw-bold">主食</span>
+                </h6>
+                <h6>
+                  <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      fill="black" />
+                    <path
+                      d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+
+                  <span class="fw-bold">冷藏</span>
+                </h6>
+                <h6>
+                  <svg class="me-1" width="16" height="17" viewBox="0 0 16 17" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      fill="black" />
+                    <path
+                      d="M8.39034 2.22416C8.14035 1.9741 7.80127 1.83357 7.44767 1.8335H2.66634C2.31272 1.8335 1.97358 1.97397 1.72353 2.22402C1.47348 2.47407 1.33301 2.81321 1.33301 3.16683V7.94816C1.33308 8.30176 1.47361 8.64084 1.72367 8.89083L7.52634 14.6935C7.82935 14.9946 8.23917 15.1636 8.66634 15.1636C9.09351 15.1636 9.50333 14.9946 9.80634 14.6935L14.193 10.3068C14.4941 10.0038 14.6631 9.594 14.6631 9.16683C14.6631 8.73966 14.4941 8.32984 14.193 8.02683L8.39034 2.22416Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path
+                      d="M4.99967 5.8335C5.18377 5.8335 5.33301 5.68426 5.33301 5.50016C5.33301 5.31607 5.18377 5.16683 4.99967 5.16683C4.81558 5.16683 4.66634 5.31607 4.66634 5.50016C4.66634 5.68426 4.81558 5.8335 4.99967 5.8335Z"
+                      stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span class="fw-bold" style="width: auto">未過保鮮期</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--頁尾區-->
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-header d-flex flex-lg-row flex-column-reverse mb-lg-19 mb-16">
+            <a href="index.html" class="footer-logo">
+                <img src="/Flavor_Trail/assets/Logo-367dc84c.png" alt="logo">
+            </a>
+            <div class="slogan ms-auto mt-lg-12 fs-2 fw-bolder lh-1">
+                <p>快樂齊分享，美味</p>
+                <p class="vertical-text text-lg-vertical ms-auto">再出發</p>
+            </div>
+        </div>
+        
+        <nav class="footer-nav row pb-lg-12 pb-7">
+            <div class="col-9">
+                <div class="row">
+                    <div class="footer-nav__category col-lg-3 mb-lg-0 mb-7">
+                        <a class="mb-4 text-gray-700 fs-6">認識餘味尋蹤</a>
+                        <ul class="d-flex flex-column gap-4 fs-4 fw-medium lh-xs">
+                            <li><a href="#" class="footer-nav__link">關於我們</a></li>
+                            <li><a href="#" class="footer-nav__link">人才招募</a></li>
+                            <li><a href="#" class="footer-nav__link">活動提案</a></li>
+                            <li><a href="#" class="footer-nav__link">連絡我們</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav__category col-lg-3 mb-lg-0 mb-7">
+                        <a class="mb-4 text-gray-700 fs-6">常見問題 FAQ</a>
+                        <ul class="d-flex flex-column gap-4 fs-4 fw-medium lh-xs">
+                            <li><a href="#" class="footer-nav__link">如何分享美食</a></li>
+                            <li><a href="#" class="footer-nav__link">如何領取美食</a></li>
+                            <li><a href="#" class="footer-nav__link">取消預約美食</a></li>
+                            <li><a href="#" class="footer-nav__link">忘記密碼</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-nav__category col-lg-3 mb-lg-0 mb-7">
+                        <a class="mb-4 text-gray-700 fs-6">會員中心</a>
+                        <ul class="d-flex flex-column gap-4 fs-4 fw-medium lh-xs">
+                            <li><a href="login.html" class="footer-nav__link">註冊/登入</a></li>
+                            <li><a href="#" class="footer-nav__link">我的帳戶</a></li>
+                            <li><a href="#" class="footer-nav__link" data-bs-toggle="modal" data-bs-target="#shareFoodModal">我要分享</a></li>
+                            <li><a href="#" class="footer-nav__link">我的收藏</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 d-lg-flex justify-content-end align-items-end">
+                <div class="footer-social d-flex flex-lg-row flex-column align-items-end gap-2">
+                    <a href="#" class="p-2">
+                        <img src="/Flavor_Trail/assets/twitter-2290406c.svg" alt="twitter">
+                    </a>
+                    <a href="#" class="p-2">
+                        <img src="/Flavor_Trail/assets/instagram-74936831.svg" alt="instagram">
+                    </a>
+                    <a href="#" class="p-2">
+                        <img src="/Flavor_Trail/assets/facebook-62067057.svg" alt="facebook">
+                    </a>
+                    <a href="#" class="p-2">
+                        <img src="/Flavor_Trail/assets/hugeicons_line-d0bbba6e.svg" alt="line">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="footer-bottom border-top-lg-0 border-top border-black">
+        <div class="container">
+            <div class="d-flex flex-lg-row flex-column justify-content-between py-7 border-top-lg border-lg-black">
+                <p class="mb-5">@ 2024 Flavor Trail</p>
+                <ul class="d-flex gap-7">
+                    <li><a href="#">網站使用需知</a></li>
+                    <li><a href="#">隱私權聲明</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="modal fade" id="shareFoodModal" tabindex="-1" aria-labelledby="shareFoodModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content bg-white">
+            <div class="modal-header border-0 p-lg-7 py-7 px-4">
+                <h1 class="modal-title fw-bolder lh-xs" id="shareFoodModalLabel">分享美味</h1>
+                <img src="/Flavor_Trail/assets/x-7378c19a.svg" alt="" class="ms-auto pointer" data-bs-dismiss="modal" aria-label="Close">
+            </div>
+            <div class="modal-body p-lg-7">
+                <p class="text-black mb-5">請回答以下所有問題，讓領取者清楚了解您分享的食物。</p>
+                <form action="/replay" method="post">
+                    <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+                    <label for="InputTitle" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7">貼文標題</label>
+                    <input type="text" class="form-control py-2 px-5 border-gray-400 rounded-3 bg-white" id="InputTitle" placeholder="請輸入貼文標題">
+                    </div>
+                    <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+                        <label for="InputFood" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7">食物名稱</label>
+                        <input type="text" class="form-control py-2 px-5 border-gray-400 rounded-3 bg-white" id="InputFood" placeholder="請輸入食物名稱">
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center w-100 me-4">
+                            <label for="FoodType" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap d-block w-auto">食物類型</label>
+                            <select id="FoodType" name="type" class="form-select py-2 px-5 border-gray-400 rounded-3 ms-md-7 ms-lg-14 bg-white">
+                                <option value="main" selected>主食</option>
+                                <option value="dessert">甜點</option>
+                                <option value="drink">飲料</option>
+                                <option value="fruit">水果</option>
+                                <option value="snack">零食</option>
+                                <option value="cooked">熟食</option>
+                                <option value="raw">生食</option>
+                            </select>
+                        </div>
+                        <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center w-100 ms-lg-7">
+                            <label for="SaveMethod" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7 d-block w-auto">保存方式</label>
+                            <select id="SaveMethod" name="method" class="form-select py-2 px-5 border-gray-400 rounded-3 bg-white">
+                                <option value="normalTemperature">常溫</option>
+                                <option value="refrigeration" selected >冷藏</option>
+                                <option value="freezing">冷凍</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center w-100 me-4">
+                            <label for="FoodNum" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap d-block w-auto">食物份數</label>
+                            <input type="number" class="form-control py-2 px-5 border-gray-400 rounded-3 ms-md-7 ms-lg-14 bg-white" id="FoodNum" placeholder="1">
+                        </div>
+                        <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center w-100 ms-lg-7">
+                            <label for="event-date" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7 d-block w-auto">有效期限</label>
+                            <input type="date" id="event-date" name="event-date" min="2024-01-01" max="2024-12-31" class="form-control py-2 px-5 border-gray-400 rounded-3 bg-white">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center w-100">
+                            <label for="FoodNum" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-3 d-block w-auto">是否已過期</label>
+                                <div class="form-check ms-0 align-items-center ms-md-7 ms-lg-7">
+                                    <input class="form-check-input" type="radio" name="overfood" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">是</label>
+                                </div>
+                                <div class="form-check ms-lg-7">
+                                    <input class="form-check-input" type="radio" name="overfood" id="flexRadioDefault2" checked>
+                                    <label class="form-check-label" for="flexRadioDefault2">否</label>
+                                </div>
+                        </div>
+                        <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center w-100 ms-lg-8 ms-7">
+                            <label for="FoodNum" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-5 d-block w-auto">葷食/素食</label>
+                            <div class="form-check ms-0">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">葷食</label>
+                            </div>
+                            <div class="form-check ms-lg-7">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">素食</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+                    <label for="pickUpCity" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7">領取地點</label>
+                    <div class="d-flex gap-2 col-lg-4">
+                        <select id="city" name="city" class="form-select py-2 px-5 border-gray-400 rounded-3 d-inline-blok w-100 bg-white">
+                            <option disabled>請選擇縣市</option>
+                            <option value="taipei">台北市</option>
+                            <option value="newTaipei" selected >新北市</option>
+                        </select>
+                        <select id="district" name="district" class="form-select py-2 px-5 border-gray-400 rounded-3 w-100 bg-white">
+                            <option value>新店區</option>
+                        </select>
+                    </div>
+                    <input type="text" class="form-control py-2 px-5 border-gray-400 rounded-3 bg-white" id="InputTitle" placeholder="玫瑰公園123號1樓">
+                    </div>
+                    <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+                        <label for="InputPhone" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7">領取時間</label>
+                        <div class="timePicker">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle rounded-3 border border-1 border-gray-400 d-flex align-items-center w-100 py-2 px-5"
+                                    id="time-range" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                    aria-expanded="false">
+                                    <div class="me-auto me-lg-5">14:00 - 16:00</div>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                    d="M12 6V12L16 14M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                                    stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <div class="dropdown-menu bg-gray-200 rounded-3 time-range-picker overflow-hidden">
+                                    <div class="d-flex">
+                                        <!-- 開始時間 -->
+                                        <ul class="list-unstyled dropdown-menu-start-time" id="start-time"></ul>
+                                        <!-- 結束時間 -->
+                                        <ul class="list-unstyled dropdown-menu-end-time disabled" id="end-time"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="share-food-modal mb-7  d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+                        <label for="InputFood" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7">上傳圖片</label>
+                        <input type="file" class="form-control bg-white py-2 px-5 border-gray-400 rounded-3" id="InputFood" placeholder="請輸入食物名稱">
+                    </div>
+                    <div class="share-food-modal mb-7 d-flex flex-column flex-lg-row gap-2">
+                        <label for="replyMessage" class="form-label h6 fw-bold text-gray-700 col-lg-1 text-nowrap me-lg-7 mt-lg-3">介紹與描述</label>
+                        <textarea class="form-control py-2 px-5 border-gray-400 rounded-3 bg-white" id="replyMessage" rows="5" placeholder="備註與細節說明"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer py-7">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">送出</button>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="d-lg-none">
+    <nav class="navbar navbar-expand-lg top-auto py-lg-0 position-fixed w-100 py-0" id="navbar">
+    <div class="container">
+        <!-- Logo -->
+        <h1 class="fs-0">
+            <a class="navbar-brand d-flex py-lg-0 d-lg-block d-none" href="index.html">
+                <img src="/Flavor_Trail/assets/Logo-navbar-de581ad4.svg" alt="logo">
+            </a>
+        </h1>
+
+        <!-- Toggler for mobile -->
+        <button class="navbar-toggler navbar-toggler-custom p-10 rounded-start-3" type="button" data-bs-toggle="offcanvas" href="#offcanvasNav" role="button" aria-controls="offcanvasNav" id="navbarToggler">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="burgerIcon" class="burger-icon">
+                <path d="M4 12H20M4 6H20M4 18H20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="closeIcon" class="d-none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>     
+        </button>
+
+        <!-- Desktop menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav py-lg-7 mb-2 mb-lg-0 gap-lg-7">
+                <li class="nav-item">
+                    <a class="nav-link py-lg-3 px-lg-5" href="allPost.html">所有貼文</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-lg-3 px-lg-5" href="#">關於我們</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link p-lg-2 search-icon" href="#" type="button">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 21L16.7 16.7M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item border border-black" id="desktop-auth-button">
+                    <a href="login.html" class="nav-link nav-item-btn py-lg-3 px-lg-5">登入/註冊</a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Mobile menu (Offcanvas) -->
+        <div class="offcanvas offcanvas-start w-100 border-0 d-lg-none" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel">
+            <div class="offcanvas-header d-flex justify-content-between mb-12">
+                <h1 class="offcanvas-title" id="offcanvasNavLabel">
+                    <a href="index.html">
+                        <img src="/Flavor_Trail/assets/Logo-navbar-de581ad4.svg" alt="logo">
+                    </a>
+                </h1>
+                <ul class="nav-item border border-black" id="mobile-auth-button">
+                    <a href="login.html" class="nav-link nav-item-btn py-3 px-5 fw-bold">登入/註冊</a>
+                </ul>
+            </div>
+            <ul class="offcanvas-body navbar-nav vh-100 pt-0">
+                <li class="nav-item mb-10">
+                    <ul class="search-form d-flex gap-2 flex-wrap">
+                        <li class="input-group rounded-3 bg-white">
+                            <input class="form-control search-input py-2 px-5 bg-white" type="text" name="search" placeholder="附近美味">
+                            <a href="#" class="input-group-text border-0 bg-transparent py-2 ps-0 pe-5">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 21L16.7 16.7M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="dropdown position-relative">
+                            <button class="dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 rounded-3 bg-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                地理位置
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-5 dropdown-arrow">
+                                    <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </button>
+                            <ul class="dropdown-menu custom-dropdown-menu position-absolute w-100">
+                                <li><a class="dropdown-item" href="#">臺北市</a></li>
+                                <li><a class="dropdown-item" href="#">新北市</a></li>
+                                <li><a class="dropdown-item" href="#">桃園市</a></li>
+                                <li><a class="dropdown-item" href="#">臺中市</a></li>
+                                <li><a class="dropdown-item" href="#">臺南市</a></li>
+                                <li><a class="dropdown-item" href="#">高雄市</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <button class="dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 rounded-3 bg-white border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                美食類型
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="ms-5 dropdown-arrow">
+                                    <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                            
+                            </button>
+                            <ul class="dropdown-menu custom-dropdown-menu position-absolute w-100">
+                                <li><a class="dropdown-item" href="#">主食</a></li>
+                                <li><a class="dropdown-item" href="#">甜點</a></li>
+                                <li><a class="dropdown-item" href="#">飲料</a></li>
+                                <li><a class="dropdown-item" href="#">水果</a></li>
+                                <li><a class="dropdown-item" href="#">零食</a></li>
+                                <li><a class="dropdown-item" href="#">熟食</a></li>
+                                <li><a class="dropdown-item" href="#">未烹飪食材</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item mb-10">
+                    <h2 class="fs-1 fw-bolder">
+                        <a class="nav-link p-0" href="#" data-bs-toggle="modal" data-bs-target="#shareFoodModal">分享美味</a>
+                    </h2>
+                </li>
+                <li class="nav-item mb-10">
+                    <h2 class="fs-1 fw-bolder">
+                        <a class="nav-link p-0" href="allPost.html">所有貼文</a>
+                    </h2>
+                </li>
+                <li class="nav-item">
+                    <h2 class="fs-1 fw-bolder">
+                        <a class="nav-link p-0" href="#">關於我們</a>
+                    </h2>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Search bar for desktop -->
+<div class="search d-none">
+    <div class="search-bar container d-flex">
+        <a class="navbar-brand d-flex align-items-center me-4" href="index.html">
+            <img src="/Flavor_Trail/assets/Logo-navbar-de581ad4.svg" alt="logo">
+        </a>
+        <ul class="search-form d-flex py-7 gap-2 ms-auto me-2 flex-grow-1 justify-content-end">
+            <li class="input-group mb-5 mb-lg-0 rounded-3 bg-white">
+                <input class="form-control search-input py-2 px-5 bg-white" type="text" name="search" placeholder="附近美味">
+                <a href="#" class="input-group-text border-0 bg-transparent py-2 ps-0 pe-5">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.7 16.7M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </li>
+            <li class="dropdown">
+                <button class="nav-link dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 gap-5 rounded-3 bg-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    地理位置
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow">
+                        <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                            
+                </button>
+                <ul class="dropdown-menu custom-dropdown-menu">
+                    <li><a class="dropdown-item" href="#">臺北市</a></li>
+                    <li><a class="dropdown-item" href="#">新北市</a></li>
+                    <li><a class="dropdown-item" href="#">桃園市</a></li>
+                    <li><a class="dropdown-item" href="#">臺中市</a></li>
+                    <li><a class="dropdown-item" href="#">臺南市</a></li>
+                    <li><a class="dropdown-item" href="#">高雄市</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <button class="nav-link dropdown-btn d-flex align-items-center justify-content-between py-2 ps-5 pe-2 gap-5 rounded-3 bg-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    美食類型
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="dropdown-arrow">
+                        <path d="M6 9L12 15L18 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                            
+                </button>
+                <ul class="dropdown-menu custom-dropdown-menu">
+                    <li><a class="dropdown-item" href="#">主食</a></li>
+                    <li><a class="dropdown-item" href="#">甜點</a></li>
+                    <li><a class="dropdown-item" href="#">飲料</a></li>
+                    <li><a class="dropdown-item" href="#">水果</a></li>
+                    <li><a class="dropdown-item" href="#">零食</a></li>
+                    <li><a class="dropdown-item" href="#">熟食</a></li>
+                    <li><a class="dropdown-item" href="#">未烹飪食材</a></li>
+                </ul>
+            </li>
+        </ul>
+        <a class="close-btn d-flex flex-column align-items-center justify-content-center ms-2 bg-black rounded-bottom-3 text-white fw-bold">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-2">
+                <path d="M18 6L6 18M6 6L18 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            關閉
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        /* 向下滾動 - 隱藏 navbar & 向上滾動 - 顯示 navbar */
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        navbar.style.top = "0";
+        function handleNavbarScroll() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            navbar.style.top = (scrollTop > lastScrollTop) ? "-88px" : "0";
+            lastScrollTop = scrollTop;
+            
+            if (scrollTop > 40) {
+                navbarToggler.classList.add('scrolled-navbar-toggler');
+            } else {
+                navbarToggler.classList.remove('scrolled-navbar-toggler');
+            }
+        }
+        window.addEventListener('scroll', handleNavbarScroll);
+
+        /* 模擬登入後「登入/註冊」按鈕變成「我的帳號」下拉選單 */
+        const desktopAuthButton = document.getElementById('desktop-auth-button');
+        const mobileAuthButton = document.getElementById('mobile-auth-button');
+
+        function setLoggedInState() {
+            const accountMenuHTML = `
+                <li class="nav-item dropdown nav-account-menu">
+                    <a class="nav-link dropdown-toggle nav-dropdown-btn py-3 px-5 position-relative d-flex align-items-center" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        我的帳號
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-primary p-1">
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu nav-dropdown-menu mt-1 border-0" aria-labelledby="accountDropdown">
+                        <li><a class="dropdown-item" href="#">我的主頁</a></li>
+                        <li><a class="dropdown-item" href="account-posts.html">我的發文</a></li>
+                        <li><a class="dropdown-item" href="account-notifications.html">全部通知</a></li>
+                        <li><a class="dropdown-item logout" href="login.html" id="logout">登出</a></li>
+                    </ul>
+                </li>
+            `;
+            
+            desktopAuthButton.innerHTML = accountMenuHTML;
+            mobileAuthButton.innerHTML = accountMenuHTML;
+
+            document.getElementById('logout').addEventListener('click', function () {
+                localStorage.removeItem('loggedIn');
+                window.location.reload(); 
+            });
+        } 
+        
+        function setLoggedOutState() {
+            const loginButtonHTML = `
+                <a href="login.html" class="nav-link nav-item-btn py-3 px-5 fw-bold">登入/註冊</a>
+            `;
+            desktopAuthButton.innerHTML = loginButtonHTML;
+            mobileAuthButton.innerHTML = loginButtonHTML;
+
+            desktopAuthButton.addEventListener('click', function () {
+                localStorage.setItem('loggedIn', true);
+            });
+            mobileAuthButton.addEventListener('click', function() {
+                localStorage.setItem('loggedIn', true);
+            })
+        }
+
+        let isLoggedIn = localStorage.getItem('loggedIn');
+        if (isLoggedIn) {
+            setLoggedInState();
+        } else {
+            setLoggedOutState();
+        }
+
+        /* 下拉選單上下箭頭切換 */
+        document.addEventListener('click', function (event) {
+            const isDropdownButton = event.target.closest('.dropdown-btn');
+            const dropdownArrows = document.querySelectorAll('.dropdown-arrow');
+
+            if (!isDropdownButton) {
+                dropdownArrows.forEach(arrow => {
+                    arrow.classList.remove('flip-arrow');
+                });
+            }
+        });
+
+        const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+        
+        dropdownButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const dropdownArrow = event.currentTarget.querySelector('.dropdown-arrow');
+                dropdownArrow.classList.toggle('flip-arrow');
+            });
+        })
+
+        /* 切換 navbar 和 搜尋欄 */
+        const searchIcon = document.querySelector('.search-icon');
+        const searchBar = document.querySelector('.search');
+        const closeBtn = document.querySelector('.close-btn');
+
+        searchIcon.addEventListener('click', function () {
+            searchBar.classList.remove('d-none');  // 顯示搜尋欄
+            navbar.classList.add('d-none');  // 隱藏導航欄
+        });
+
+        closeBtn.addEventListener('click', function () {
+            searchBar.classList.add('d-none');  // 隱藏搜尋欄
+            navbar.classList.remove('d-none');  // 顯示導航欄
+        });
+
+        /* 切換漢堡圖標和關閉圖標 */
+        const navbarToggler = document.getElementById('navbarToggler');
+        const burgerIcon = document.getElementById('burgerIcon');
+        const closeIcon = document.getElementById('closeIcon');
+
+        function toggleIcons() {
+            burgerIcon.classList.toggle('d-none');
+            closeIcon.classList.toggle('d-none');
+            navbarToggler.classList.toggle('toggled');
+        };
+
+        navbarToggler.addEventListener('click', toggleIcons);
+    });
+
+    
+</script>
+  </div>
+  
+  <div class="CTA-rectangle d-lg-none d-block mt-10">
+    <a href="#" 
+        class="CTA-rectangle-btn d-flex align-items-center justify-content-center 
+        gap-5 py-5 px-7 rounded-3 fs-4 fw-medium"
+    >
+        <!-- 根據不同頁面更換 icon -->
+        
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-stroke-color">
+                <path d="M18.0001 11V6C18.0001 5.46957 17.7894 4.96086 17.4143 4.58579C17.0392 4.21071 16.5305 4 16.0001 4C15.4697 4 14.961 4.21071 14.5859 4.58579C14.2108 4.96086 14.0001 5.46957 14.0001 6M14.0001 10V4C14.0001 3.46957 13.7894 2.96086 13.4143 2.58579C13.0392 2.21071 12.5305 2 12.0001 2C11.4697 2 10.961 2.21071 10.5859 2.58579C10.2108 2.96086 10.0001 3.46957 10.0001 4V6M10.0001 6V10.5M10.0001 6C10.0001 5.46957 9.78939 4.96086 9.41432 4.58579C9.03924 4.21071 8.53054 4 8.0001 4C7.46967 4 6.96096 4.21071 6.58589 4.58579C6.21082 4.96086 6.0001 5.46957 6.0001 6V14M18.0001 8C18.0001 7.46957 18.2108 6.96086 18.5859 6.58579C18.961 6.21071 19.4697 6 20.0001 6C20.5305 6 21.0392 6.21071 21.4143 6.58579C21.7894 6.96086 22.0001 7.46957 22.0001 8V14C22.0001 16.1217 21.1572 18.1566 19.657 19.6569C18.1567 21.1571 16.1218 22 14.0001 22H12.0001C9.2001 22 7.5001 21.14 6.0101 19.66L2.4101 16.06C2.06604 15.6789 1.88169 15.1802 1.89523 14.6669C1.90876 14.1537 2.11915 13.6653 2.48282 13.303C2.8465 12.9406 3.3356 12.7319 3.84888 12.7202C4.36215 12.7085 4.86027 12.8946 5.2401 13.24L7.0001 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+                
+        
+            
+        <!-- 立即報名 我要領取 -->
+        我要領取
+    </a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const ctaRectangleBtn = document.querySelector('.CTA-rectangle-btn');
+        function handleCtaRectangleBtnScroll() {
+            let scollTop = window.scrollY || document.documentElement.scrollTop;
+    
+            if (scollTop > 40) {
+                ctaRectangleBtn.classList.add('scrolled-navbar-toggler');
+            } else {
+                ctaRectangleBtn.classList.remove('scrolled-navbar-toggler');
+            }
+        }
+        window.addEventListener('scroll', handleCtaRectangleBtnScroll);
+    })
+</script>
+
+
+  
+</body>
+
+</html>
