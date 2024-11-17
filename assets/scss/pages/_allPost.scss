@@ -1,0 +1,20 @@
+.all-post {
+  &-nav {
+    @include media-breakpoint-up(lg) {
+      margin-top: 104px;
+    }
+  }
+
+  .filter-btn {
+    &:hover {
+      background-color: $gray-300;
+    }
+  }
+
+
+  .spinner-border {
+    width: 24px;
+    height: 24px;
+    --bs-spinner-border-width: 2px;
+  }
+}
